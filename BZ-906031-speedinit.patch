@@ -1,0 +1,13 @@
+diff -up curl-7.29.0/lib/url.c.orig curl-7.29.0/lib/url.c
+--- curl-7.29.0/lib/url.c.orig	2013-02-06 10:47:19.000000000 +0100
++++ curl-7.29.0/lib/url.c	2013-04-26 10:51:29.361598999 +0200
+@@ -4895,6 +4895,9 @@ static CURLcode create_conn(struct Sessi
+                           -1, NULL); /* no upload */
+     }
+ 
++    /* since we skip do_init() */
++    Curl_speedinit(data);
++
+     return result;
+   }
+ #endif
